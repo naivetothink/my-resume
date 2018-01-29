@@ -1,21 +1,8 @@
 # my-resume
 
-> A Vue.js project
+> 使用webpack和vue把以前的demo合并起来做个简历
 
-## Build Setup
+## 说明
+不知不觉，已经自学了这么久了。深知自身还有很多不足，但似乎尽快的到实践中去可能才是提高自身技术的最快方式。借助githup把自己的代码放到网上，非常感谢这个平台能给一个展示的机会。希望能找到双方满意的工作，努力的提高自己吧，也许还是少年。
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
