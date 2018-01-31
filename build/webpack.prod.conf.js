@@ -155,7 +155,7 @@ for (var pathname in pages) {
    },
     chunksSortMode: 'dependency', // dependency 页面中引入的js按照依赖关系排序；manual 页面中引入的js按照下面的chunks的数组中的顺序排序；
      
-    chunks: ['manifest', 'vender', pathname] // 生成的页面中引入的js，'manifest', 'vender'这两个js是webpack在打包过程中抽取出的一些公共方法依赖，其中，'manifest'又是从'vender'中抽取得到的，所以这三个js文件的依赖关系是 pathname依赖 'vender'，'vender'依赖'manifest'.
+    chunks: ['manifest', 'vendor', pathname] // 生成的页面中引入的js，'manifest', 'vender'这两个js是webpack在打包过程中抽取出的一些公共方法依赖，其中，'manifest'又是从'vender'中抽取得到的，所以这三个js文件的依赖关系是 pathname依赖 'vender'，'vender'依赖'manifest'.
 
   }
  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));

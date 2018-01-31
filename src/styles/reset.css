@@ -1,0 +1,25 @@
+html,body,h1,h2,h3,h4,h5,h6,p,iframe,dl,dt,dd,ul,ol,li,pre,form,button,input,textarea,th,td,fieldset{margin:0;padding:0}
+ul,ol,dl,li{list-style-type:none}
+html,body{*position:static}
+a{text-decoration:none;cursor: pointer}
+a:hover{text-decoration:underline;outline:none}
+a.ie6:hover{zoom:1}
+a:focus{outline:none}
+a:hover,a:active{outline:none}:focus{outline:none}
+img{border:0;}
+.cl:after,
+.clearfix:after{
+	content:".";display:block;height:0;clear:both;visibility:hidden
+}
+.cl,.clearfix{zoom:1}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
