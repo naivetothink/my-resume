@@ -30,7 +30,8 @@ var build= {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '../dist',
+    // assetsPublicPath: '../dist'，加个斜杠就正确输出图片地址了。
+    assetsPublicPath: '../dist/',
 
     /**
      * Source Maps
