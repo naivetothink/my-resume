@@ -11,6 +11,9 @@ button.primary{width: 170px;height: 50px;
   background: none;
     
 }
+.fade {
+    animation: fade-in 0.8s;
+}
 h1.comment{color:#0eb493;font-size: 48px;margin-bottom: 20px;}
 p.mar{margin-bottom:20px;}
 button.primary:hover,button.primary.cur{cursor: pointer;color:#fff;background: #0eb493;}

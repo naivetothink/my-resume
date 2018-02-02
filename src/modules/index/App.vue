@@ -1,28 +1,34 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <div class="progress container">
+    <div class="progress container cl">
       <div class="row">
         <div class="col-md-8 cl">
           <ul class="bar">
             <li v-for="item in styles">
               <p v-bind:style="{  borderLeft: item.borderColor+' 4px solid',backgroundColor: item.bgColor,color:item.color,width:item.bar  }">{{item.text}}<span>{{item.bar}}</span></p>
+              <ul class="fade">
+                <li v-for='context in item.contexts'>{{context}}</li>
+              </ul>
             </li>
           </ul>
         </div>
         <div class="col-md-4 download">
-          <h3>基本信息</h3>
+          <h3 class="head-primary">基本信息</h3>
           <ul>
-            <li v-for="(item,key,index) in msg"><strong>{{key}}</strong> :  <span v-html='item'></span></li>
+            <li v-for="(item,key,index) in msg"><strong>{{key}}</strong> : <span v-html='item'></span></li>
           </ul>
-          <h3>个人介绍</h3>
-          <p>我是一个对前端由衷热爱、有趣的前端工程师。
-我目前正在寻找前端工程师岗位的工作机会，希望借此为 贵公司献上我的一点绵薄之力，快招我到碗里来吧！</p>
+          <h3 class="head-primary">个人介绍</h3>
+          <p>我是一个对前端由衷热爱、有趣的前端工程师。 我目前正在寻找前端工程师岗位的工作机会，希望借此为 贵公司献上我的一点绵薄之力，快招我到碗里来吧！</p>
           <div class="download-button-container">
             <a class="download-button" href="./penghui-resume.pdf" target="_blank">Download PDF</a>
           </div>
         </div>
       </div>
+    </div>
+    <div class="project container cl">
+      <h3 class="head-primary">项目与DEMO</h3>
+
     </div>
   </div>
 </template>
@@ -42,6 +48,11 @@ export default {
           bgColor: '#d6efff',
           borderColor: '#3498db',
           color: '#2a7da9',
+          contexts:[
+            '熟练原生JavaScript，能脱离jQuery等类库编码；',
+            '能运用模块化、面向对象的方式编程；',
+            '熟悉正则表达式的使用；'
+          ]
         },
         {
           text: 'HTML & CSS',
@@ -49,13 +60,24 @@ export default {
           bgColor: '#d6efff',
           borderColor: '#3498db',
           color: '#2a7da9',
+          contexts:[
+            '能使用合理的结构和样式编写兼容主流浏览器的页面；',
+            '能适当运用CSS 3使页面在现代浏览器上效果更佳；',
+            '熟悉自适应和响应式开发',
+            '能熟练使用Chrome开发者工具辅助开发。',
+          ]
         },
         {
-          text: 'jquery',
+          text: 'jQuery',
           bar: '70%',
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
+          contexts:[
+            '熟练使用jQuery及插件的使用和编写',
+            '能使用jQuery快速开发',
+            
+          ],
         },
         {
           text: 'vue',
@@ -63,6 +85,10 @@ export default {
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
+          contexts:[
+            '熟练使用VUE以及相关插件',
+            '了解双向绑定机制',
+          ],
         },
         {
           text: 'webpack',
@@ -70,6 +96,10 @@ export default {
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
+          contexts:[
+            '熟练使用webpack打包工具',
+            '熟练调试webpack的相关设置',
+          ],
         },
         {
           text: 'Photoshop',
@@ -77,6 +107,10 @@ export default {
           bgColor: '#fff6dd',
           borderColor: '#fdbc40',
           color: '#ff742a',
+          contexts:[
+            '熟练使用PS切图',
+            '能进行简单的图片处理',
+          ],
         },
         {
           text: 'HTTP协议、sass等',
@@ -84,6 +118,10 @@ export default {
           bgColor: '#fff6dd',
           borderColor: '#fdbc40',
           color: '#ff742a',
+          contexts:[
+            '了解http协议',
+            '熟悉sass等相关css预处理语言',
+          ],
         },
       ],
       msg: {
@@ -104,10 +142,19 @@ body {
     .v-header {
       z-index: 2;
     }
+    .head-primary{
+
+      font-size: 24px;
+      color: #00A1D6;
+      line-height: 30px;
+      border-bottom: 1px solid #00A1D6;
+      margin: 10px 0 15px 0px;      
+    }
     .progress {
       z-index: 1;
       margin-top: 120px;
       .bar li {
+        position: relative;
         margin-bottom: 20px;
         p {
           font-size: 20px;
@@ -119,49 +166,60 @@ body {
             padding-right: 10px;
           }
         }
+        &:hover{ul{display: block;}};
+        ul {
+              position: absolute;
+              left: 150px;
+              top: 12px;
+              z-index: 9999;
+              color:#333;
+              max-width: 400px;
+              padding: 10px;
+              padding-left: 2em;
+              background: rgba(255, 255, 255, 0.8);
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+              border-radius: 4px;
+              display: none;
+              li{line-height: 1.7;font-size: 14px;list-style-type: disc;}
+        }
+      }
+      .download {
+
+        ul li {
+          font-size: 15px;
+          line-height: 27px;
+          color: #616161;
+        }
+        .download-button {
+          font-weight: 300;
+          color: #FFF;
+          background: #23A1E6;
+          text-shadow: rgba(0, 0, 0, 0.1533333333) 0 1px 1px;
+          font-size: 14pt;
+          border-radius: 3px;
+          letter-spacing: 0.03rem;
+          text-align: center;
+          display: block;
+          box-sizing: border-box;
+          height: 70px;
+          padding: 1.35em 0 0;
+          margin: 20px auto 0;
+          text-decoration: none;
+          &:hover {
+            background: #1e75a5;
+          }
+          ;
+        }
+        p {
+          margin: 10px 0;
+          text-indent: 2em;
+          background-color: #fff;
+          /*word-break:break-all;*/
+        }
       }
     }
-    .download {
-      h3{
-        font-size: 24px;
-        color: #00A1D6;
-        line-height: 30px;
-        border-bottom: 1px solid #00A1D6;
-        margin: 10px 0 15px 0px;
-      }
-      ul li {
-            font-size: 15px;
-    line-height: 27px;
-    color: #616161;
-
-      }
-      .download-button {
-        font-weight: 300;
-        color: #FFF;
-        background: #23A1E6;
-        text-shadow: rgba(0, 0, 0, 0.1533333333) 0 1px 1px;
-        font-size: 14pt;
-        border-radius: 3px;
-        letter-spacing: 0.03rem;
-        text-align: center;
-        display: block;
-        box-sizing: border-box;
-        height: 70px;
-        padding: 1.35em 0 0;
-        margin: 20px auto 0;
-        text-decoration: none;
-        &:hover {
-          background: #1e75a5;
-        }
-        ;
-        
-      }
-      p {
-        margin:10px 0;
-        text-indent: 2em;
-        background-color: #fff;
-        /*word-break:break-all;*/
-      }
+    .project{
+      height: 300px;
     }
   }
 }
