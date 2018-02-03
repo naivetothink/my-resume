@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>测试</title>
+<style>
+	
+	img{
+		/*border: 5px solid green;*/
+		margin:0px;
+		display: block;
+		float: left;
+		
+	}
+	#wrap{
+		position: relative;
+		left: 200px;
+		top: 200px;
+		width: 940px;
+		height: 300px;
+		overflow: hidden;
+		
+	}
+
+	#inner{
+		position: absolute;
+		height: 300px;
+		width: 6580px;		/*940*7*/
+		left:-940px;		/*定位在第一张图上*/
+		/*font-size: 0;*/
+
+	}
+	#buttons{
+		position:absolute;
+		/*background: green;*/
+
+		left: 380px;
+    	top: 260px;
+
+	}	
+	#buttons span{
+		/*span之间的空隙是因为回车符决定的*/
+		display: inline-block;
+		/*background: gray;*/
+		width: 5px;
+		height: 5px;
+		padding: 5px;
+    	margin: 8px;
+    	border: 1px #999 solid;
+    	border-radius:50%;
+	}
+	#buttons .on,#buttons span:hover{
+		background: white;
+		cursor: pointer;
+	}
+	#pre,#next{
+		position:absolute;
+		display: none;
+		/* width: 5px;
+		height: 5px; */
+		font-size: 50px;
+		color: #999;
+		/* background: green; */
+		border: 1px #999 solid;
+		border-radius:5px;
+	}
+	#wrap:hover #pre,#wrap:hover #next{			/*鼠标经过的时候显示箭头。*/	
+			display: block;		
+	}
+	#pre:hover,#next:hover{
+		color:white;
+		 background: #888;
+		 cursor: pointer;
+	}
+	#pre{
+		left: 36px;
+    	top: 144px
+	}
+	#next{
+		left: 870px;
+		top:144px;
+	}	
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="inner">
+		<img src="sale_picture5.png">
+		<img src="sale_picture2.png">
+		<img src="sale_picture1.png">
+		<img src="sale_picture3.png">
+		<img src="sale_picture4.png">
+		<img src="sale_picture5.png">
+		<img src="sale_picture2.png">
+	</div>
+
+	<div id="buttons">
+		<span index="1" class="on"></span>
+		<span index="2"></span>
+		<span index="3"></span>
+		<span index="4"></span>
+		<span index="5"></span>
+	</div>
+	<div id="pre"> < </div>
+	<div id="next"> > </div>
+</div>
+
+
+<script src="example.js">
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>测试</title>
+<style>
+	 #wrap{
+			position: relative;
+			width: 300px;
+			height: 170px;
+			left: 80px;
+    		top: 180px;
+		}
+	 #wraps{
+			position: absolute;
+			width: 300px;
+			height: 170px;
+			left: 0;
+			top: 0;
+			background: green;
+			opacity: 0;
+			
+		}
+	#fang{
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		background:yellow;
+		opacity: 0.3;
+		display: none;
+	}
+	#bimg{
+			position: absolute;
+			width: 210px;
+			height: 210px;
+			left: 500px;
+    		top: 90px;
+    		/*border: 3px green solid;*/
+    		overflow: hidden;
+    		display: none;
+		}
+	#bimg img{
+		position: absolute;
+		
+	}	 	
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="fang"></div>
+		<img src="pic.png" alt="">
+		<div id="wraps"></div>
+	</div>
+	
+	<div id="bimg">
+		<img src="pic1.png" alt="">
+	</div>
+
+<script src="example.js">
+</script>
+</body>
+
+
+</html>

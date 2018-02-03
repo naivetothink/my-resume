@@ -1,0 +1,94 @@
+Html Webpack Plugin:
+<pre>
+  Error: Parse Error: <li class="list-group-item  " v-for="(value,index) in myData" :class={orange:index==now} @mouseove  r="now=index" @click.left="open()">{{value}}</li> 
+          </ul> 
+      </div> 
+      <script type="text/javascript"> 
+          window.onload=function () { 
+              var log=console.log.bind(console); 
+              var jj=new Vue({ 
+                  el:"#app", 
+                  data:{ 
+                      myData:[], 
+                      wd:"", 
+                      now:-1,       
+                  }, 
+                  methods:{ 
+                      get:function (ev) { 
+                          if (ev.which==38||ev.which==40) {return} 
+                          jj.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.wd,{ 
+                              jsonp:'cb' 
+                          }).then(function(res){ 
+                              this.myData=res.data.s; 
+                          },function(){ 
+                               alert(404) 
+                          }); 
+                      }, 
+                      changeNow:function (ev) { 
+                          if (ev.which==40) { 
+                              this.now++; 
+                              if (this.now==this.myData.length) { 
+                                  this.now=0 
+                              } 
+                      } 
+                          if (ev.which==38) { 
+                              this.now--; 
+                              ev.preventDefault(); 
+                              if (this.now==-1) { 
+                                  this.now=this.myData.length-1 
+                              } 
+                          } 
+                          if (ev.which==13) { 
+                              window.open('https://www.baidu.com/s?wd='+this.myData[this.now]); 
+                              this.wd=''; 
+                          } 
+                          if (ev.which==8) {this.now=-1;} 
+                      }, 
+                      open:function () { 
+                          window.open('https://www.baidu.com/s?wd='+this.myData[this.now]); 
+                              this.wd=''; 
+                      } 
+                  } 
+              }); 
+          }; 
+      </script> 
+  <script type="text/javascript" src="../dist/static/js/manifest.be01a19396ab73a65590.js"></script><script type="text/ja  vascript" src="../dist/static/js/vendor.f87ff1e03d472c939fa8.js"></script></body> 
+  </html>
+  
+  - htmlparser.js:235 new HTMLParser
+    [my-resume]/[html-minifier]/src/htmlparser.js:235:13
+  
+  - htmlminifier.js:944 minify
+    [my-resume]/[html-minifier]/src/htmlminifier.js:944:3
+  
+  - htmlminifier.js:1297 exports.minify
+    [my-resume]/[html-minifier]/src/htmlminifier.js:1297:10
+  
+  - index.js:296 
+    [my-resume]/[html-webpack-plugin]/index.js:296:16
+  
+  - util.js:16 tryCatcher
+    [my-resume]/[bluebird]/js/release/util.js:16:23
+  
+  - promise.js:512 Promise._settlePromiseFromHandler
+    [my-resume]/[bluebird]/js/release/promise.js:512:31
+  
+  - promise.js:569 Promise._settlePromise
+    [my-resume]/[bluebird]/js/release/promise.js:569:18
+  
+  - promise.js:614 Promise._settlePromise0
+    [my-resume]/[bluebird]/js/release/promise.js:614:10
+  
+  - promise.js:693 Promise._settlePromises
+    [my-resume]/[bluebird]/js/release/promise.js:693:18
+  
+  - async.js:133 Async._drainQueue
+    [my-resume]/[bluebird]/js/release/async.js:133:16
+  
+  - async.js:143 Async._drainQueues
+    [my-resume]/[bluebird]/js/release/async.js:143:10
+  
+  - async.js:17 Immediate.Async.drainQueues
+    [my-resume]/[bluebird]/js/release/async.js:17:14
+  
+</pre>

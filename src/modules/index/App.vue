@@ -28,7 +28,16 @@
     </div>
     <div class="project container cl">
       <h3 class="head-primary">项目与DEMO</h3>
-
+      <div class="row cl">
+        <div class="col-md-6" v-for="(demo,key,index) in demos">
+          <div class="mar">
+            <h4>{{key}}</h4>
+            <p v-html='demo.context'></p>
+            <a :href="demo.a_href" target='_blank'>在线地址</a>
+            <div><a :href="demo.a_href" target='_blank'><img :src='demo.imgSrc' alt=""></a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +57,7 @@ export default {
           bgColor: '#d6efff',
           borderColor: '#3498db',
           color: '#2a7da9',
-          contexts:[
+          contexts: [
             '熟练原生JavaScript，能脱离jQuery等类库编码；',
             '能运用模块化、面向对象的方式编程；',
             '熟悉正则表达式的使用；'
@@ -60,7 +69,7 @@ export default {
           bgColor: '#d6efff',
           borderColor: '#3498db',
           color: '#2a7da9',
-          contexts:[
+          contexts: [
             '能使用合理的结构和样式编写兼容主流浏览器的页面；',
             '能适当运用CSS 3使页面在现代浏览器上效果更佳；',
             '熟悉自适应和响应式开发',
@@ -73,10 +82,10 @@ export default {
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
-          contexts:[
+          contexts: [
             '熟练使用jQuery及插件的使用和编写',
             '能使用jQuery快速开发',
-            
+
           ],
         },
         {
@@ -85,7 +94,7 @@ export default {
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
-          contexts:[
+          contexts: [
             '熟练使用VUE以及相关插件',
             '了解双向绑定机制',
           ],
@@ -96,7 +105,7 @@ export default {
           bgColor: '#eaf6d0',
           borderColor: '#80bd01',
           color: '#6e9c0f',
-          contexts:[
+          contexts: [
             '熟练使用webpack打包工具',
             '熟练调试webpack的相关设置',
           ],
@@ -107,7 +116,7 @@ export default {
           bgColor: '#fff6dd',
           borderColor: '#fdbc40',
           color: '#ff742a',
-          contexts:[
+          contexts: [
             '熟练使用PS切图',
             '能进行简单的图片处理',
           ],
@@ -118,7 +127,7 @@ export default {
           bgColor: '#fff6dd',
           borderColor: '#fdbc40',
           color: '#ff742a',
-          contexts:[
+          contexts: [
             '了解http协议',
             '熟悉sass等相关css预处理语言',
           ],
@@ -129,8 +138,35 @@ export default {
         '毕业院校': '许昌职业技术学院',
         'QQ或微信': '1034154496',
         'GitHub': '<a href="http://github.com/naivetothink" target="_blank">http://github.com/naivetothink</a>',
-
       },
+      demos: {
+        '企业网站': {
+          'context': '用到了',
+          'a_href': 'gz-index.html',
+          'imgSrc': require('./images/贯众01.png'),
+
+        },
+        'heheda': {
+          'context': 'jiesao',
+          'a_href': './demos/Vue-lists.html',
+          'imgSrc': '',
+        },
+        'hehe1': {
+          'context': 'jiesao',
+          'a_href': './demos/Vue 简易留言板.html',
+          'imgSrc': '',
+        },
+        'heheda2': {
+          'context': 'jiesao',
+          'a_href': './demos/Vue 简易购物车.html',
+          'imgSrc': '',
+        },
+        'heheda2': {
+          'context': 'jiesao',
+          'a_href': './demos/Vue 简易购物车.html',
+          'imgSrc': '',
+        },
+      }
     }
   },
 }
@@ -142,13 +178,13 @@ body {
     .v-header {
       z-index: 2;
     }
-    .head-primary{
+    .head-primary {
 
       font-size: 24px;
       color: #00A1D6;
       line-height: 30px;
       border-bottom: 1px solid #00A1D6;
-      margin: 10px 0 15px 0px;      
+      margin: 10px 0 15px 0px;
     }
     .progress {
       z-index: 1;
@@ -166,21 +202,30 @@ body {
             padding-right: 10px;
           }
         }
-        &:hover{ul{display: block;}};
+        &:hover {
+          ul {
+            display: block;
+          }
+        }
+        ;
         ul {
-              position: absolute;
-              left: 150px;
-              top: 12px;
-              z-index: 9999;
-              color:#333;
-              max-width: 400px;
-              padding: 10px;
-              padding-left: 2em;
-              background: rgba(255, 255, 255, 0.8);
-              box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-              border-radius: 4px;
-              display: none;
-              li{line-height: 1.7;font-size: 14px;list-style-type: disc;}
+          position: absolute;
+          left: 150px;
+          top: 12px;
+          z-index: 9999;
+          color: #333;
+          max-width: 400px;
+          padding: 10px;
+          padding-left: 2em;
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          display: none;
+          li {
+            line-height: 1.7;
+            font-size: 14px;
+            list-style-type: disc;
+          }
         }
       }
       .download {
@@ -218,8 +263,38 @@ body {
         }
       }
     }
-    .project{
-      height: 300px;
+    .project {
+      height: 900px;
+      .row {
+        div[class^='col-md'] {
+          background: #fff;
+          .mar {
+            margin:0 10% 5% 10%;           
+            border-bottom: 1px solid #00A1D6;
+          }
+          h4 {
+            color: #333;
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+          p {
+            margin: 10px 0;
+            color: #616161;
+            span {
+              color: #333;
+              font-size: 1.1em;
+              font-weight: bold;
+            }
+          }
+          img {
+            width: 80%;
+            height: auto;
+            margin: 20px 0;
+            border:1px solid #fff;
+            &:hover{border:1px solid gray;}
+          }
+        }
+      }
     }
   }
 }

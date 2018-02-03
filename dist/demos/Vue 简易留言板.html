@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>vue demo</title>
+    <link href="./asserts/bootstrap.css" rel="stylesheet">
+    <script src="./asserts/jquery.js"></script>
+    <script src="./asserts/bootstrap.js"></script>
+    <script src="./asserts/vue.js"></script>
+</head>
+<style type="text/css">
+body {
+    font-size: 200%;
+}
+
+#app {
+
+    padding-top: 50px;
+}
+</style>
+
+<body>
+    <div id="app" class="container">
+        <form role="form">
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" class="form-control " placeholder="输入用户名" v-model="username">
+            </div>
+            <div class="form-group">
+                <label for="age">年　龄:</label>
+                <input type="text" id="age" class="form-control" placeholder="输入年龄" v-model="age">
+            </div>
+            <div class="form-group">
+                <input type="button" value="添加" class="btn btn-primary" v-on:click="add()">
+                <input type="reset" value="重置" class="btn btn-danger">
+            </div>
+        </form>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <caption class="h3 text-info text-center">信息列表</caption>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">名字</th>
+                <th class="text-center">年龄</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr class="text-center" v-for="(val,index) in arr">
+                <td>{{index+1}}</td>
+                <td>{{val.name}}</td>
+                <td>{{val.age}}</td>
+                <td>
+                    <button data-toggle="modal" data-target="#layer" class="btn btn-primary" @click="nowIndex=index">删除</button>
+                </td>
+            </tr>
+            <tr v-show="arr.length>0">
+                <td colspan="4" class="text-right">
+                    <button data-toggle="modal" data-target="#layer" class="btn btn-danger " @click="nowIndex=-2">删除全部</button>
+                </td>
+            </tr>
+            <tr v-show="arr.length==0">
+                <td colspan="4" class="text-center text-muted">
+                    <p>暂无数据....</p>
+                </td>
+            </tr>
+        </table>
+   
+        <!-- 模态框 -->
+        <div id="layer" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">确认删除<span v-if="nowIndex==-2">全部</span>吗？</h4>
+                    </div>
+                    <!-- <div class="modal-body">
+                        
+                    </div> -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                        <button  type="button" class="btn btn-danger"  data-dismiss="modal" @click="deleteMsg(nowIndex)">确认</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: [],
+                username: "",
+                age: "",
+                nowIndex: "-999",
+            },
+            methods: {
+                add: function(argument) {
+                    this.arr.push({
+                        name: this.username,
+                        age: this.age,
+                    });
+                    this.username = "";
+                    this.age = "";
+                },
+                deleteMsg: function(n) {
+                    if (this.nowIndex==-999) {return;}
+                    if (n == -2) {
+                        this.arr = [];
+                    } else {
+                        this.arr.splice(n, 1)
+                    }
+                }
+            }
+
+        })
+    }
+    </script>
+</body>
+
+</html>

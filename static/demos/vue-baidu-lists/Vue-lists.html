@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>vue demo</title>
+    <link href="../asserts/bootstrap.css" rel="stylesheet">
+    <script src="../asserts/jquery.js"></script>
+    <script src="../asserts/bootstrap.js"></script>
+    <script src="../asserts/vue.js"></script>
+    <script src="../asserts/vue-resource.js"></script>
+</head>
+<style type="text/css">
+
+
+.orange{
+    background: orange;
+    cursor: pointer;
+}
+</style>
+
+<body>
+    <div id="app" class="container text-center">
+        <h2 >搜索</h2>
+
+        <input class="col-md-11 input-lg " type="text" name="" v-model="wd" @keyup="get($event)" @keydown="changeNow($event)">
+        <button class="col-md-1  btn btn-primary btn-lg">搜索</button>
+        
+        <P v-show="myData.length==0" >暂无数据</P>
+
+        <ul class="list-group col-md-12">
+            <li class="list-group-item  " v-for="(value,index) in myData" :class={orange:index==now} @mouseover="now=index" @click.left="open()">{{value}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        window.onload=function () {
+            var log=console.log.bind(console);
+            var jj=new Vue({
+                el:"#app",
+                data:{
+                    myData:[],
+                    wd:"",
+                    now:-1,      
+                },
+                methods:{
+                    get:function (ev) {
+                        if (ev.which==38||ev.which==40) {return}
+                        jj.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.wd,{
+                            jsonp:'cb'
+                        }).then(function(res){
+                            this.myData=res.data.s;
+                        },function(){
+                             alert(404)
+                        });
+                    },
+                    changeNow:function (ev) {
+                        if (ev.which==40) {
+                            this.now++;
+                            if (this.now==this.myData.length) {
+                                this.now=0
+                            }
+                    }
+                        if (ev.which==38) {
+                            this.now--;
+                            ev.preventDefault();
+                            if (this.now==-1) {
+                                this.now=this.myData.length-1
+                            }
+                        }
+                        if (ev.which==13) {
+                            window.open('https://www.baidu.com/s?wd='+this.myData[this.now]);
+                            this.wd='';
+                        
+                        }
+                        if (ev.which==8) {this.now=-1;}
+                        
+                        
+                    },
+                    open:function () {
+                        window.open('https://www.baidu.com/s?wd='+this.myData[this.now]);
+                            this.wd='';
+                    }
+                }
+            });
+            
+        };
+    </script>
+</body>
+
+</html>
