@@ -143,73 +143,73 @@ export default {
       },
       demos: {
         '企业网站': {
-          'context': '用到了',
+          'context': '基于<span>webpack</span>、<span>vue-cli</span>、<span>scss</span>构建，涉及了前端自动化、组件化等技术。',
           'a_href': 'gz-index.html',
           'imgSrc': require('./images/允能01.png'),
 
         },
         '搜索框demo': {
-          'context': '使用了vue和vue-resource和jsonp等技术',
+          'context': '使用了<span>vue</span>和<span>vue-resource</span>和<span>jsonp</span>等技术,涉及了控制台的抓包等前端调试界面。',
           'a_href': './demos/Vue-lists.html',
           'imgSrc': require('./images/search.png'),
         },
         'Vue 简易留言板': {
-          'context': '使用了bootstrap等框架',
+          'context': '使用了<span>bootstrap</span>、<span>vue</span>等框架,了解和使用双向绑定，知道了什么是数据驱动。',
           'a_href': './demos/Vue 简易留言板.html',
           'imgSrc': require('./images/留言板.png'),
         },
         'Vue 简易购物车': {
-          'context': '用vue做的购物车，能进行金额的计算等',
+          'context': '用<span>vue</span>做的购物车，能进行商品金额的计算、商品单选、全选和删除等',
           'a_href': './demos/Vue 简易购物车.html',
           'imgSrc': require('./images/购物车.png'),
         },
         '商城首页': {
-          'context': '锋利的jQuery中的案例',
+          'context': '锋利的<span>jQuery</span>中的案例，使用了jQuery等相关的操作',
           'a_href': './demos/jQuery-Ch8-商城/index.html',
           'imgSrc': require('./images/商城首页.png'),
         },
         '商城详情页': {
-          'context': 'jiesao',
+          'context': '锋利的<span>jQuery</span>中的案例，使用了jQuery中的插件。',
           'a_href': './demos/jQuery-Ch8-商城/detail.html',
           'imgSrc': require('./images/商城详情页.png'),
         },
         '放大镜特效': {
-          'context': '用原生js写的放大镜',
+          'context': '用<span>JavaScript</span>写的放大镜',
           'a_href': './demos/text 放大镜/text.html',
           'imgSrc': require('./images/放大镜特效.png'),
         },
         '监测鼠标位置': {
-          'context': '用到了原生js，浏览器bom等技术',
+          'context': '用到了<span>JavaScript</span>，<span>浏览器bom</span>等技术',
           'a_href': './demos/text 跟随鼠标位置/text.html',
           'imgSrc': require('./images/mouse-place.png'),
         },
         '轮播图-淡入淡出': {
-          'context': 'jiesao',
+          'context': '用<span>JavaScript</span>实现的轮播图淡入淡出。',
           'a_href': './demos/text 轮播图/text 轮播图 - 淡入淡出/text.html',
           'imgSrc': require('./images/淡入淡出.png'),
         },
         '轮播图-滚动': {
-          'context': 'jiesao',
+          'context': '用<span>JavaScript</span>实现的轮播图无限滚动。',
           'a_href': './demos/text 轮播图/轮播图-滚动/text.html',
           'imgSrc': require('./images/滚动.png'),
         },
         '多环撞击特效': {
-          'context': '用了原生js和面向对象编程以及定时器自动删除',
+          'context': '用了<span>JavaScript</span>和<span>面向对象编程</span>以及定时器自动删除',
           'a_href': './demos/text 小球碰撞4/index.html',
           'imgSrc': require('./images/小球碰撞.png'),
         },
         '妙味课堂网页': {
-          'context': '使用了HTML和CSS以及雪碧图等技术',
+          'context': '使用了<span>HTML</span>和<span>CSS</span>以及<span>css sprite</span>等技术',
           'a_href': './demos/妙味课堂/index.html',
           'imgSrc': require('./images/妙味课堂.png'),
         },
         '打砖块小游戏': {
-          'context': 'jiesao',
+          'context': '用到了<span>JavaScript</span>，涉及了<span>碰撞检测</span>，闭包，面向对象，事件注册等技术。',
           'a_href': './demos/试着写游戏V1.9/text.html',
           'imgSrc': require('./images/打砖块.png'),
         },
         '二叉树': {
-          'context': '二叉树',
+          'context': '使用<span>JavaScript</span>实现简单的<span>二叉树</span>，涉及前序遍历、中序遍历、后序遍历。',
           'a_href': './demos/二叉树/index.html',
           'imgSrc': require('./images/二叉树.png'),
         },
