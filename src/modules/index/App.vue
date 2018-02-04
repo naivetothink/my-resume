@@ -39,15 +39,17 @@
         </div>
       </div>
     </div>
+    <v-footer></v-footer>  
   </div>
 </template>
 <script>
 import header from '../../components/header/Header.vue'
-
+import footer from '../../components/footer/Footer.vue'
 export default {
   name: 'App',
   components: {
     'v-header': header,
+    'v-footer': footer,
   },
   data() {
     return {
@@ -143,28 +145,73 @@ export default {
         '企业网站': {
           'context': '用到了',
           'a_href': 'gz-index.html',
-          'imgSrc': require('./images/贯众01.png'),
+          'imgSrc': require('./images/允能01.png'),
 
         },
-        'heheda': {
-          'context': 'jiesao',
+        '搜索框demo': {
+          'context': '使用了vue和vue-resource和jsonp等技术',
           'a_href': './demos/Vue-lists.html',
-          'imgSrc': '',
+          'imgSrc': require('./images/search.png'),
         },
-        'hehe1': {
-          'context': 'jiesao',
+        'Vue 简易留言板': {
+          'context': '使用了bootstrap等框架',
           'a_href': './demos/Vue 简易留言板.html',
-          'imgSrc': '',
+          'imgSrc': require('./images/留言板.png'),
         },
-        'heheda2': {
-          'context': 'jiesao',
+        'Vue 简易购物车': {
+          'context': '用vue做的购物车，能进行金额的计算等',
           'a_href': './demos/Vue 简易购物车.html',
-          'imgSrc': '',
+          'imgSrc': require('./images/购物车.png'),
         },
-        'heheda2': {
+        '商城首页': {
+          'context': '锋利的jQuery中的案例',
+          'a_href': './demos/jQuery-Ch8-商城/index.html',
+          'imgSrc': require('./images/商城首页.png'),
+        },
+        '商城详情页': {
           'context': 'jiesao',
-          'a_href': './demos/Vue 简易购物车.html',
-          'imgSrc': '',
+          'a_href': './demos/jQuery-Ch8-商城/detail.html',
+          'imgSrc': require('./images/商城详情页.png'),
+        },
+        '放大镜特效': {
+          'context': '用原生js写的放大镜',
+          'a_href': './demos/text 放大镜/text.html',
+          'imgSrc': require('./images/放大镜特效.png'),
+        },
+        '监测鼠标位置': {
+          'context': '用到了原生js，浏览器bom等技术',
+          'a_href': './demos/text 跟随鼠标位置/text.html',
+          'imgSrc': require('./images/mouse-place.png'),
+        },
+        '轮播图-淡入淡出': {
+          'context': 'jiesao',
+          'a_href': './demos/text 轮播图/text 轮播图 - 淡入淡出/text.html',
+          'imgSrc': require('./images/淡入淡出.png'),
+        },
+        '轮播图-滚动': {
+          'context': 'jiesao',
+          'a_href': './demos/text 轮播图/轮播图-滚动/text.html',
+          'imgSrc': require('./images/滚动.png'),
+        },
+        '多环撞击特效': {
+          'context': '用了原生js和面向对象编程以及定时器自动删除',
+          'a_href': './demos/text 小球碰撞4/index.html',
+          'imgSrc': require('./images/小球碰撞.png'),
+        },
+        '妙味课堂网页': {
+          'context': '使用了HTML和CSS以及雪碧图等技术',
+          'a_href': './demos/妙味课堂/index.html',
+          'imgSrc': require('./images/妙味课堂.png'),
+        },
+        '打砖块小游戏': {
+          'context': 'jiesao',
+          'a_href': './demos/试着写游戏V1.9/text.html',
+          'imgSrc': require('./images/打砖块.png'),
+        },
+        '二叉树': {
+          'context': '二叉树',
+          'a_href': './demos/二叉树/index.html',
+          'imgSrc': require('./images/二叉树.png'),
         },
       }
     }
@@ -264,7 +311,6 @@ body {
       }
     }
     .project {
-      height: 900px;
       .row {
         div[class^='col-md'] {
           background: #fff;
