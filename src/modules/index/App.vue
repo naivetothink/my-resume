@@ -139,6 +139,7 @@ export default {
         '个人信息': '彭会 / 男',
         '毕业院校': '许昌职业技术学院',
         'QQ或微信': '1034154496',
+        '手机号码': '13271236931',
         'GitHub': '<a href="http://github.com/naivetothink" target="_blank">http://github.com/naivetothink</a>',
       },
       demos: {
